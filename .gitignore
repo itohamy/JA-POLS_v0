@@ -1,0 +1,12 @@
+
+# Ignore specific files
+
+
+# Use wildcards as well
+*.npy
+*/data/*
+data/*
+*/1_joint_alignment/STN/model/*
+1_joint_alignment/STN/model/*
+*/1_joint_alignment/SE/tmp_data/*
+1_joint_alignment/SE/tmp_data/*
