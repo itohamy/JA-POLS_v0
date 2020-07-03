@@ -11,7 +11,7 @@ images = dict(
 
 
 se = dict(
-    data_type = 'video',  # 'images', 'video'
+    data_type = 'images',  # 'images', 'video'
     video_name = 'jitter.mp4',  # relevant when data_type = 'video'
     img_type = '*.png',  # relevant when data_type = 'images'
     #starting_frame = 20,  # the frame number that will be placed in the middle of the panoramic region
