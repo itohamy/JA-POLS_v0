@@ -13,3 +13,9 @@ data/*
 
 */__pycache__/*
 __pycache__/*
+*/1_joint_alignment/AFFINE/__pycache__/*
+1_joint_alignment/AFFINE/__pycache__/*
+*/1_joint_alignment/SE/__pycache__/*
+1_joint_alignment/SE/__pycache__/*
+*/1_joint_alignment/STN/__pycache__/*
+1_joint_alignment/STN/__pycache__/*
