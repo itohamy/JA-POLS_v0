@@ -49,8 +49,8 @@ A video or a sequence of images, that the BG model will be learned from.<br />
 This should be located in *input/video* or *input/images* respectively.
 
 <ins>Output</ins>:<br />
-Affine transformation for each of the input images, located in: *data/final_AFFINE_trans.npy*.<br />
-In this file, record *i* contains the affine transformations (6-parameters) that is associated with input image *i*.
+Affine transformations for all input images, located in: *data/final_AFFINE_trans.npy*.<br />
+In this file, record *i* contains the affine transformation (6-parameters) that is associated with input image *i*.
 
 <ins>Required params in config.py:</ins><br />
 Data type (video or a sequence of images), and relevant info about the input data:
