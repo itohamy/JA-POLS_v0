@@ -8,7 +8,7 @@ This code repository corresponds to our CVPR-20 paper: **JA-POLS: a Moving-camer
 JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera background model, which is highly scalable and allows for relatively-free camera motion.
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/tennis_gif.gif" alt="JA-POLS typical results" width="200" height="100">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/tennis_gif.gif" alt="JA-POLS typical results" width="500" height="270">
 </p>
 
 ## Requirements
