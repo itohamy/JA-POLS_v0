@@ -71,7 +71,7 @@ Here we solve a joint-alignment problem:
 
 <br>
 <p align="left">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_1.png" alt=" " width="700" height="150">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_1.png" alt=" " width="600" height="100">
 </p>
 
 
