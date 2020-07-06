@@ -17,13 +17,13 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 
 ## Usage
 JA-POLS method includes 3 steps that run in separate modules:
-- Joint alignment
+- Joint alignment: align all input images to a common coordinate system
 - Learning of two tasks:
     - Partially-overlapping Local Subspaces (the background)
     - Alignment prediction
 - BG/FG separation for a (previously-unseen) input frame 
 
-Configuration parameters: the file config.py include all required parameters of the 3 modules.
+Configuration parameters: the file config.py includes all required parameters for the 3 modules.
 
 Before start running the code, insert the following config parameter:
 
@@ -46,12 +46,19 @@ images = dict(
 #### Joint Alignment
 <ins>Code location (main function)</ins>: 1_joint_alignment/main_joint_alignment.py
 
-<ins>Input</ins>: a set of images or a video, that the BG model will be learned from.
+<ins>Input</ins>: a video or a sequence of images, that the BG model will be learned from. This should be located in input/video or input/images respectively.
 
-<ins>Output</ins>:
+<ins>Output</ins>: Affine transformation for each of the input images, located in: data/final_AFFINE_trans.npy.
+In this file, record i includes 6-parameters of the affine transformation that is associated with input image i.
 
-<ins>Required params in config.py:</ins>
-
+<ins>Required params in config.py:</ins> data type (video or a sequence of images), and relevant info about the input data:
+```
+se = dict(
+    data_type = 'images',  # 'images' or 'video'
+    video_name = 'jitter.mp4',  # relevant when data_type = 'video'
+    img_type = '*.png',  # relevant when data_type = 'images'
+)
+```
 
 #### Learning
 <ins>Code location (main function)</ins>: 2_learning/main_learning.py
