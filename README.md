@@ -16,7 +16,12 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 ## Installation
 
 ## Usage
-In order to run 
+JA-POLS method includes 3 steps that run in separate modules:
+- Joint alignment
+- Learning of two tasks:
+    - Partially-overlapping Local Subspaces (the background)
+    - Alignment prediction
+- BG/FG separation for a (previously-unseen) input frame 
 
 There is one config.py file that is used in all modules. 
 
