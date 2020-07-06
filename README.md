@@ -15,7 +15,7 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 
 ## Installation
 
-## Usage
+## Instructions and Description
 JA-POLS method includes 3 steps that run in separate modules:
 - Joint alignment: align all input images to a common coordinate system
 - Learning of two tasks:
