@@ -76,6 +76,15 @@ Here we solve a joint-alignment problem:
 <img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_loss.png" alt=" " width="660" height="200">
 </p>
 
+<br>
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_se.png" alt=" " width="560" height="110">
+</p>
+
+<br>
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/se_graph.png" alt=" " width="300" height="100">
+</p>
 
 ### Module 2: Learning
 <ins>Code location (main function)</ins>: 2_learning/main_learning.py
