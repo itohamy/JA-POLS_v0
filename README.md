@@ -23,29 +23,33 @@ JA-POLS method includes 3 steps that run in separate modules:
     - Alignment prediction
 - BG/FG separation for a (previously-unseen) input frame 
 
-There is one config.py file that is used in all modules. 
+Configuration parameters: the file config.py include all required parameters of the 3 modules.
 
 Before start running the code, insert the following config parameter:
 
 Your local path to the JA-POLS folder:
+```
 paths = dict(
     my_path = '/PATH_TO_JAPOLS_CODE/JA-POLS/',
 )
+```
 
-Size of a single frame in the learning data:
+The size of a single input frame:
+```
 images = dict(
     img_sz = (250, 420, 3),
 )
+```
 
 
 #### Joint Alignment
 Code: 1_joint_alignment/
 
-Input: a set of images or a video, that the BG model will be learned from.
+<ins>Input</ins>: a set of images or a video, that the BG model will be learned from.
 
-Output:
+<ins>Output</ins>:
 
-Required params in config.py:
+<ins>Required params in config.py:</ins>
 - If the input frames are images, 
 
 
