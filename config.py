@@ -14,7 +14,6 @@ se = dict(
     data_type = 'images',  # 'images', 'video'
     video_name = 'jitter.mp4',  # relevant when data_type = 'video'
     img_type = '*.png',  # relevant when data_type = 'images'
-    #starting_frame = 20,  # the frame number that will be placed in the middle of the panoramic region
 )
 
 
@@ -42,15 +41,12 @@ stn = dict(
 
 pols = dict(
     shift_sz = 40,
-    window_sz = (250, 420),  # (850 - 400, 1220 - 400),  #(120, 170),
-    k = 1,  # relevant for: pca, TGA, empca
-    trimming_percent = 97,  # relevant for: TGA
-    method_type = 'TGA',  # pca / rpca_candes_v1 / TGA / ipca / empca / PRPCA
-    overlap_percent = 0, # 0,  #0.5,  # minimum % of overlapped pixels out of d_tilde needed to consider an overlapped image (used in "get_overlapped_imgs")
+    window_sz = (250, 420),
+    method_type = 'TGA',  # PCA / RPCA-CANDES / TGA / PRPCA
+    k = 5,  # relevant for: pca, TGA, empca
+    trimming_percent = 95,  # relevant for: TGA
+    overlap_percent = 0.6, # 0,  #0.5,  # minimum % of overlapped pixels out of d_tilde needed to consider an overlapped image (used in "get_overlapped_imgs")
     min_data_points = 5,  # minimum number of images to learn subspace from.
-    is_zeromean = True,  # "Flase" when using PRPCA, "True" when using TGA.
-    data_path = 'Data_Global/',
-
     # Comment: if we want to learn the whole panorama (global model): overlap_percent=0, window_sz=img_emb_sz
 )
 

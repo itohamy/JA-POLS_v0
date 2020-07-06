@@ -19,6 +19,16 @@ __pycache__/*
 1_joint_alignment/SE/__pycache__/*
 */1_joint_alignment/STN/__pycache__/*
 1_joint_alignment/STN/__pycache__/*
+*/2_learning/BG/__pycache__/*
+2_learning/BG/__pycache__/*
+*/2_learning/Alignment/__pycache__/*
+2_learning/Alignment/__pycache__/*
+
+*/2_learning/BG/TGA-PCA/subspaces/*
+2_learning/BG/TGA-PCA/subspaces/*
+*/2_learning/BG/TGA-PCA/movie/starwars_000/*
+2_learning/BG/TGA-PCA/movie/starwars_000/*
+
 
 */.idea/*
 .idea/*
