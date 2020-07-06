@@ -62,9 +62,9 @@ se = dict(
 ```
 
 <ins>Description</ins>:<br />
-Here we solve a joint-alignment problem: given misaligned video frames, $(x_i)_{i=1}^N$, 
-<img src="https://latex.codecogs.com/gif.latex?(x_i)_{i=1}^N"/> 
-find affine transformations $(T^{\btheta_i})_{i=1}^N\subset \AFFtwo$ to get jointly-aligned images $(\widetilde{x}_i^{\btheta_i})_{i=1}^N$ (where $\widetilde{x}_i^{\btheta_i}=x_i\circ T^{\btheta_i}$) in a \emph{global} coordinate system with $D$ pixels.
+Here we solve a joint-alignment problem: given misaligned video frames, 
+<img src="https://latex.codecogs.com/gif.latex?(x_i)_{i=1}^N"/>, 
+find affine transformations <img src="https://latex.codecogs.com/gif.latex?(T^{\btheta_i})_{i=1}^N\subset \AFFtwo"/> to get jointly-aligned images <img src="https://latex.codecogs.com/gif.latex?(\widetilde{x}_i^{\btheta_i})_{i=1}^N"/> (where <img src="https://latex.codecogs.com/gif.latex?\widetilde{x}_i^{\btheta_i}=x_i\circ T^{\btheta_i}"/>) in a global coordinate system with <img src="https://latex.codecogs.com/gif.latex?D"/> pixels.
 
 
 #### Learning
