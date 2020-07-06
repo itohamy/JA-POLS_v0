@@ -34,7 +34,7 @@ paths = dict(
 )
 ```
 
-The size of a single input frame:
+The size of a single input frame (height, width, depth):
 ```
 images = dict(
     img_sz = (250, 420, 3),
