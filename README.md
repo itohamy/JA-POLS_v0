@@ -68,7 +68,7 @@ Here we solve a joint-alignment problem:
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc.png" alt=" " width="660" height="500">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc.png" alt=" " width="660" height="510">
 </p>
 
 <br>
