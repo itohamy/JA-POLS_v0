@@ -44,13 +44,13 @@ images = dict(
 
 
 #### Joint Alignment
-<ins>Code location (main function)</ins>: 1_joint_alignment/main_joint_alignment.py
+<ins>Code location (main function)</ins>: *1_joint_alignment/main_joint_alignment.py*
 
-<ins>Input</ins>: a video or a sequence of images, that the BG model will be learned from.\\
-This should be located in $input/video$ or $input/images$ respectively.
+<ins>Input</ins>: a video or a sequence of images, that the BG model will be learned from.<br />
+This should be located in *input/video* or *input/images* respectively.
 
-<ins>Output</ins>: Affine transformation for each of the input images, located in: data/final_AFFINE_trans.npy.\\
-In this file, record $i$ contains the affine transformations (6-parameters) that is associated with input image $i$.
+<ins>Output</ins>: Affine transformation for each of the input images, located in: *data/final_AFFINE_trans.npy*.<br />
+In this file, record *i* contains the affine transformations (6-parameters) that is associated with input image *i*.
 
 <ins>Required params in config.py:</ins> data type (video or a sequence of images), and relevant info about the input data:
 ```
