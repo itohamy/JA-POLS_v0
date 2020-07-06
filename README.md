@@ -72,7 +72,7 @@ Here we solve a joint-alignment problem:
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="660" height="520">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="500">
 </p>
 
 <br>
@@ -86,7 +86,6 @@ High-level steps:
 3. Transform images according to the absolute SE transformations
 4. Estimate residual affine transformations by optimizing the above loss function using Spatial Transformer Network (STN).
 5. End-up with absolute affine transformations for each of the input images
-<br />
 <br />
 <br />
 
