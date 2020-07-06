@@ -76,6 +76,14 @@ Here we solve a joint-alignment problem:
 <img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/se_graph.png" alt=" " width="300" height="100">
 </p>
 
+High-level steps:
+1. Compute relative transformations for pairs of input images (according to the graph)
+2. Run SE-Sync framework and get absolute SE transformations for each frame
+3. Transform images according to the absolute SE transformations
+4. Estimate residual affine transformations by optimizing the above loss function using Spatial Transformer Network (STN).
+5. End-up with absolute affine transformations for each of the input images
+
+
 ### Module 2: Learning
 <ins>Code location (main function)</ins>: 2_learning/main_learning.py
 
