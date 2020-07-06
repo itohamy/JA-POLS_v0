@@ -15,8 +15,8 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 
 ## Installation
 
-## Usage
-JA-POLS method includes 3 steps that run in separate modules:
+## Instructions and Description
+JA-POLS method includes 3 phases that run in separate modules:
 - Joint alignment: align all input images to a common coordinate system
 - Learning of two tasks:
     - Partially-overlapping Local Subspaces (the background)
@@ -40,10 +40,7 @@ images = dict(
     img_sz = (250, 420, 3),
 )
 ```
-### Usage of each module:
-
-
-#### Joint Alignment
+### Module 1: Joint Alignment
 <ins>Code</ins>: main function is located in: *1_joint_alignment/main_joint_alignment.py*
 
 <ins>Input</ins>: a video or a sequence of images, that the BG model will be learned from.<br />
@@ -70,13 +67,17 @@ Here we solve a joint-alignment problem:
 </p>
 
 <br>
-<p align="left">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_1.png" alt=" " width="700" height="150">
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_1.png" alt=" " width="660" height="130">
+</p>
+
+<br>
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_loss.png" alt=" " width="660" height="200">
 </p>
 
 
-
-#### Learning
+### Module 2: Learning
 <ins>Code location (main function)</ins>: 2_learning/main_learning.py
 
 <ins>Input</ins>:
@@ -86,7 +87,7 @@ Here we solve a joint-alignment problem:
 <ins>Required params in config.py:</ins>
 
 
-#### Background/Foreground Separation
+### Module 3: Background/Foreground Separation
 <ins>Code location (main function)</ins>:
 
 <ins>Input</ins>:
