@@ -44,7 +44,7 @@ images = dict(
 
 
 #### Joint Alignment
-<ins>Code location (main function)</ins>: *1_joint_alignment/main_joint_alignment.py*
+<ins>Code</ins>: main function is located in: *1_joint_alignment/main_joint_alignment.py*
 
 <ins>Input</ins>: a video or a sequence of images, that the BG model will be learned from.<br />
 This should be located in *input/video* or *input/images* respectively.
