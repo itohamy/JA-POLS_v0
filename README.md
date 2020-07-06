@@ -42,17 +42,32 @@ images = dict(
 ```
 ### Usage of each module:
 
+
 #### Joint Alignment
-Code: 1_joint_alignment/
+<ins>Code location (main function)</ins>: 1_joint_alignment/main_joint_alignment.py
 
 <ins>Input</ins>: a set of images or a video, that the BG model will be learned from.
 
 <ins>Output</ins>:
 
 <ins>Required params in config.py:</ins>
-- If the input frames are images, 
 
 
 #### Learning
+<ins>Code location (main function)</ins>: 2_learning/main_learning.py
+
+<ins>Input</ins>:
+
+<ins>Output</ins>:
+
+<ins>Required params in config.py:</ins>
+
 
 #### Background/Foreground Separation
+<ins>Code location (main function)</ins>:
+
+<ins>Input</ins>:
+
+<ins>Output</ins>:
+
+<ins>Required params in config.py:</ins>
