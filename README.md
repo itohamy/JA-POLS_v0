@@ -8,7 +8,7 @@ This code repository corresponds to our CVPR-20 paper: **JA-POLS: a Moving-camer
 JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera background model, which is highly scalable and allows for relatively-free camera motion.
 <br>
 <p align="center">
-<img src="https://bitbucket.org/bgucsvil/talks_japols/src/master/talk_general/slides/figures/gif_tennis/frame0.png" alt="JA-POLS typical results">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/tennis_gif.gif" alt="JA-POLS typical results">
 </p>
 
 ## Requirements
@@ -60,6 +60,12 @@ se = dict(
     img_type = '*.png',  # relevant when data_type = 'images'
 )
 ```
+
+<ins>Description</ins>:<br />
+Here we solve a joint-alignment problem: given misaligned video frames, 
+<img src="https://latex.codecogs.com/gif.latex?(x_i)_{i=1}^N"/>, 
+find affine transformations <img src="https://latex.codecogs.com/gif.latex?(T^{\btheta_i})_{i=1}^N\subset \AFFtwo"/> to get jointly-aligned images <img src="https://latex.codecogs.com/gif.latex?(\widetilde{x}_i^{\btheta_i})_{i=1}^N"/> (where <img src="https://latex.codecogs.com/gif.latex?\widetilde{x}_i^{\btheta_i}=x_i\circ T^{\btheta_i}"/>) in a global coordinate system with <img src="https://latex.codecogs.com/gif.latex?D"/> pixels.
+
 
 #### Learning
 <ins>Code location (main function)</ins>: 2_learning/main_learning.py
