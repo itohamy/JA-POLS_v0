@@ -16,7 +16,6 @@ import config
 class Piecewise_Subspace:
 
     def __init__(self):
-        #print('Start loading data...')
         self.mypath = config.paths['my_path']
         self.data_path = self.mypath + 'data/'
         self.window_sz = config.pols['window_sz']

@@ -46,7 +46,7 @@ pols = dict(
     k = 5,  # relevant for: pca, TGA, empca
     trimming_percent = 95,  # relevant for: TGA
     overlap_percent = 0.6, # 0,  #0.5,  # minimum % of overlapped pixels out of d_tilde needed to consider an overlapped image (used in "get_overlapped_imgs")
-    min_data_points = 5,  # minimum number of images to learn subspace from.
+    min_data_points = 5,  # minimum number of images in the dataset of each local subspace
     # Comment: if we want to learn the whole panorama (global model): overlap_percent=0, window_sz=img_emb_sz
 )
 
@@ -56,11 +56,11 @@ regress_trans = dict(
     gpu_num = 0,
     model_name = 'googlenet',  # Models to choose from [googlenet, resnet, alexnet, vgg, squeezenet, densenet, inception]
     batch_size = 64,
-    num_epochs = 200,  #200
+    num_epochs = 1,  #200
     learning_rate = 0.001,
     val_prct = 0.2,
 
-    # If augmentations are needed, set to True, and choose # of them per image
+    # If augmentations are needed, set to True, and choose # of augmented images per input image
     augment = True,
     aug_num_per_img = 5,
     aug_std=0.1,
@@ -68,8 +68,6 @@ regress_trans = dict(
     class_num = 6,  # Fixed
     test_name = 'test_false_aug',
     feature_extract = False,  # Flag for feature extracting. When False, we finetune the whole model, when True we only update the reshaped layer params
-    model_path = 'Regress_transformations/models/best_model.pt',
-    data_path = 'DATA/jitter/',
 )
 
 

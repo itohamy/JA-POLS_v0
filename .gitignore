@@ -28,7 +28,10 @@ __pycache__/*
 2_learning/BG/TGA-PCA/subspaces/*
 */2_learning/BG/TGA-PCA/movie/starwars_000/*
 2_learning/BG/TGA-PCA/movie/starwars_000/*
-
+*/2_learning/Alignment/models/*
+2_learning/Alignment/models/*
+*/2_learning/Alignment/logs/*
+2_learning/Alignment/logs/*
 
 */.idea/*
 .idea/*
