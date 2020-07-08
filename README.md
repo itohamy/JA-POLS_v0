@@ -23,7 +23,7 @@ JA-POLS method includes 3 phases that run in separate modules:
     - Alignment prediction
 - BG/FG separation for a (previously-unseen) input frame 
 
-Configuration parameters: the file config.py includes all required parameters for the 3 modules.
+**Configuration parameters:** the file config.py includes all required parameters for the 3 modules.
 
 Before start running the code, insert the following config parameter:
 
@@ -42,25 +42,37 @@ images = dict(
 ```
 ### Module 1: Joint Alignment
 <ins>Code</ins>:<br />
-Main function is located in: *1_joint_alignment/main_joint_alignment.py*
+Main function: *1_joint_alignment/main_joint_alignment.py*
 
 <ins>Input</ins>:<br />
 A video or a sequence of images, that the BG model will be learned from.<br />
-This should be located in *input/video* or *input/images* respectively.
+The video or the images should be located in *input/video* or *input/images* respectively.
 
 <ins>Output</ins>:<br />
 Affine transformations for all input images, located in: *data/final_AFFINE_trans.npy*.<br />
-In this file, record *i* contains the affine transformation (6-parameters) that is associated with input image *i*.
+In this file, record *i* contains the affine transformation (6-parameters vector) that is associated with input image *i*.
 
 <ins>Required params in config.py:</ins><br />
 Data type (video or a sequence of images), and relevant info about the input data:
 ```
 se = dict(
-    data_type = 'images',  # 'images' or 'video'
+    data_type = 'images',  # choose from: ['images', 'video']
     video_name = 'jitter.mp4',  # relevant when data_type = 'video'
     img_type = '*.png',  # relevant when data_type = 'images'
 )
 ```
+
+Parameters for the spatial transformer net (when estimating the affine transformations):
+```
+stn = dict(
+    device = '/cpu:0',   # choose from: ['/gpu:0', '/gpu:1', '/cpu:0']
+    load_model = False,  # 'False' when learning a model from scratch, 'True' when using a trained network's model
+    iter_per_epoch = 1, # number of iterations 
+    batch_size = 10,
+)
+```
+
+The rest of the parameters can (optionally) remain with the current configuration.
 
 <ins>Description</ins>:<br />
 Here we solve a joint-alignment problem: 
@@ -90,13 +102,40 @@ High-level steps:
 <br />
 
 ### Module 2: Learning
-<ins>Code location (main function)</ins>: 2_learning/main_learning.py
+<ins>Code location (main function)</ins>:<br /> 
+Main function: *2_learning/main_learning.py*
 
-<ins>Input</ins>:
+<ins>Input</ins>:<br /> 
+Several files that were prepared in module 1, located in: 
+*data/final_AFFINE_trans.npy*, *data/imgs.npy*, *data/imgs_big_embd.npy*
 
-<ins>Output</ins>:
+<ins>Output</ins>:<br />
+Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
+Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
 
-<ins>Required params in config.py:</ins>
+<ins>Required params in config.py:</ins><br />
+**Local-subspaces learning:**<br />
+Method type of the background learning algorithm, that will run on each local domain:
+```
+se = dict(
+    method_type = 'TGA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
+)
+```
+The rest of the parameters can (optionally) remain with the current configuration.
+
+**Alignment-prediction learning:**<br />
+Parameters for the regressor net (when learning a map between images and transformations):
+```
+regress_trans = dict(
+    load_model = False,  # 'False' when learning a model from scratch, 'True' when using a trained network's model
+    gpu_num = 0,  # number of gpu to use (in case there is more than one)
+)
+```
+The rest of the parameters can (optionally) remain with the current configuration.
+
+
+<ins>Description</ins>:<br />
+
 
 
 ### Module 3: Background/Foreground Separation
