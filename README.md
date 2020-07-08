@@ -72,6 +72,8 @@ stn = dict(
 )
 ```
 
+The rest of the parameters can (optionally) remain with the current configuration.
+
 <ins>Description</ins>:<br />
 Here we solve a joint-alignment problem: 
 
@@ -119,11 +121,21 @@ se = dict(
     method_type = 'TGA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
 )
 ```
-The rest of the parameters can remain with the current configuration.
+The rest of the parameters can (optionally) remain with the current configuration.
 
 **Alignment-prediction learning:**<br />
+Parameters for the regressor net (when learning a map between images and transformations):
+```
+regress_trans = dict(
+    load_model = False,  # 'False' when learning a model from scratch, 'True' when using a trained network's model
+    gpu_num = 0,  # number of gpu to use (in case there is more than one)
+)
+```
+The rest of the parameters can (optionally) remain with the current configuration.
+
 
 <ins>Description</ins>:<br />
+
 
 
 ### Module 3: Background/Foreground Separation
