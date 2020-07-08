@@ -11,18 +11,18 @@ images = dict(
 
 
 se = dict(
-    data_type = 'images',  # 'images', 'video'
+    data_type = 'images',  # choose from: ['images', 'video']
     video_name = 'jitter.mp4',  # relevant when data_type = 'video'
     img_type = '*.png',  # relevant when data_type = 'images'
 )
 
 
 stn = dict(
-    device = '/cpu:0',   # '/gpu:0', '/gpu:1'
-    load_model = False,
-    num_stn = 3,
-    iter_per_epoch = 1,
+    device = '/cpu:0',   # choose from: ['/gpu:0', '/gpu:1', '/cpu:0']
+    load_model = False,  # 'False' when learning a model from scratch, 'True' when using a trained network's model
+    iter_per_epoch = 1, # number of iterations
     batch_size = 10,
+    num_stn = 3,
     weight_stddev = 1e-5,
     activation_func = "relu",  # "tanh" ,"relu"
     delta = 0.025,
@@ -40,20 +40,20 @@ stn = dict(
 
 
 pols = dict(
-    shift_sz = 40,
-    window_sz = (250, 420),
-    method_type = 'TGA',  # PCA / RPCA-CANDES / TGA / PRPCA
-    k = 5,  # relevant for: pca, TGA, empca
+    method_type = 'TGA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
+    shift_sz = 40,  # stride used to split the big domain into local domains
+    window_sz = (250, 420),  # window size used to split the big domain into local domains
+    k = 5,  # number of learned components in each subspace, relevant for: pca, TGA, empca
     trimming_percent = 95,  # relevant for: TGA
-    overlap_percent = 0.6, # 0,  #0.5,  # minimum % of overlapped pixels out of d_tilde needed to consider an overlapped image (used in "get_overlapped_imgs")
+    overlap_percent = 0.6, # minimum % of overlapped pixels out of d_tilde needed to consider an overlapped image (used in "get_overlapped_imgs")
     min_data_points = 5,  # minimum number of images in the dataset of each local subspace
     # Comment: if we want to learn the whole panorama (global model): overlap_percent=0, window_sz=img_emb_sz
 )
 
 
 regress_trans = dict(
-    load_model = False,
-    gpu_num = 0,
+    load_model = False, # 'False' when learning a model from scratch, 'True' when using a trained network's model
+    gpu_num = 0, # number of gpu to use (in case there is more than one)
     model_name = 'googlenet',  # Models to choose from [googlenet, resnet, alexnet, vgg, squeezenet, densenet, inception]
     batch_size = 64,
     num_epochs = 1,  #200
