@@ -136,6 +136,11 @@ The rest of the parameters can (optionally) remain with the current configuratio
 
 <ins>Description</ins>:<br />
 
+<br>
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/phase2.png" alt=" " width="520" height="320">
+</p>
+
 
 
 ### Module 3: Background/Foreground Separation
