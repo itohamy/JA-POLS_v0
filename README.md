@@ -136,12 +136,15 @@ The rest of the parameters can (optionally) remain with the current configuratio
 
 <ins>Description</ins>:<br />
 Here we learn two tasks, based on the affine transformations that were learned in module 1:
-
 <br>
 <p align="center">
 <img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/phase2.png" alt=" " width="250" height="220">
 </p>
 
+<br>
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/learning_desc.png" alt=" " width="680" height="500">
+</p>
 
 
 ### Module 3: Background/Foreground Separation
