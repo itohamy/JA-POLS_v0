@@ -84,7 +84,7 @@ Here we solve a joint-alignment problem:
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="500">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="490">
 </p>
 
 <br>
@@ -143,7 +143,7 @@ Here we learn two tasks, based on the affine transformations that were learned i
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/learning_desc.png" alt=" " width="680" height="700">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/learning_desc.png" alt=" " width="680" height="720">
 </p>
 
 
