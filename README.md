@@ -138,12 +138,12 @@ The rest of the parameters can (optionally) remain with the current configuratio
 Here we learn two tasks, based on the affine transformations that were learned in module 1:
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/phase2.png" alt=" " width="250" height="220">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/phase2.png" alt=" " width="270" height="240">
 </p>
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/learning_desc.png" alt=" " width="680" height="720">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/learning_desc.png" alt=" " width="650" height="720">
 </p>
 
 
