@@ -79,17 +79,17 @@ Here we solve a joint-alignment problem:
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_0.png" alt=" " width="520" height="320">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_0.png" alt=" " width="520" height="290">
 </p>
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="490">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="450">
 </p>
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/se_graph.png" alt=" " width="300" height="100">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/se_graph.png" alt=" " width="280" height="100">
 </p>
 
 High-level steps:
