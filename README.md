@@ -106,19 +106,19 @@ High-level steps:
 Main function: *2_learning/main_learning.py*
 
 <ins>Input</ins>:<br /> 
-Several files that were prepared in module 1, located in: 
+Files that were prepared in module 1, located in: 
 *data/final_AFFINE_trans.npy*, *data/imgs.npy*, *data/imgs_big_embd.npy*
 
 <ins>Output</ins>:<br />
-Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
-Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
+- Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
+- Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
 
 <ins>Required params in config.py:</ins><br />
 **Local-subspaces learning:**<br />
 Method type of the background learning algorithm, that will run on each local domain:
 ```
 se = dict(
-    method_type = 'TGA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
+    method_type = 'PRPCA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
 )
 ```
 The rest of the parameters can (optionally) remain with the current configuration.
