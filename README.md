@@ -79,17 +79,17 @@ Here we solve a joint-alignment problem:
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_0.png" alt=" " width="520" height="320">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_0.png" alt=" " width="520" height="290">
 </p>
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="500">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/joint_align_desc2.png" alt=" " width="680" height="450">
 </p>
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/se_graph.png" alt=" " width="300" height="100">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/se_graph.png" alt=" " width="280" height="100">
 </p>
 
 High-level steps:
@@ -106,19 +106,19 @@ High-level steps:
 Main function: *2_learning/main_learning.py*
 
 <ins>Input</ins>:<br /> 
-Several files that were prepared in module 1, located in: 
+Files that were prepared in module 1, located in: 
 *data/final_AFFINE_trans.npy*, *data/imgs.npy*, *data/imgs_big_embd.npy*
 
 <ins>Output</ins>:<br />
-Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
-Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
+- Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
+- Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
 
 <ins>Required params in config.py:</ins><br />
 **Local-subspaces learning:**<br />
 Method type of the background learning algorithm, that will run on each local domain:
 ```
 se = dict(
-    method_type = 'TGA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
+    method_type = 'PRPCA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
 )
 ```
 The rest of the parameters can (optionally) remain with the current configuration.
@@ -136,12 +136,15 @@ The rest of the parameters can (optionally) remain with the current configuratio
 
 <ins>Description</ins>:<br />
 Here we learn two tasks, based on the affine transformations that were learned in module 1:
+<br>
+<p align="center">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/phase2.png" alt=" " width="270" height="240">
+</p>
 
 <br>
 <p align="center">
-<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/phase2.png" alt=" " width="250" height="220">
+<img src="https://github.com/itohamy/JA-POLS_v0/blob/master/tmp/learning_desc.png" alt=" " width="650" height="720">
 </p>
-
 
 
 ### Module 3: Background/Foreground Separation
