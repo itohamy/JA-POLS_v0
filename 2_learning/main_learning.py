@@ -6,7 +6,7 @@ from Alignment.Alignment_learning import learn_alignment
 def main():
 
     # learn bg:
-    #learn_piecewise_subspace()
+    learn_piecewise_subspace()
 
     # learn alignment
     learn_alignment()
