@@ -41,10 +41,12 @@ stn = dict(
 
 pols = dict(
     method_type = 'TGA',  # choose from: [PCA / RPCA-CANDES / TGA / PRPCA]
+
     shift_sz = 40,  # stride used to split the big domain into local domains
     window_sz = (250, 420),  # window size used to split the big domain into local domains
     k = 5,  # number of learned components in each subspace, relevant for: pca, TGA, empca
     trimming_percent = 95,  # relevant for: TGA
+
     overlap_percent = 0.6, # minimum % of overlapped pixels out of d_tilde needed to consider an overlapped image (used in "get_overlapped_imgs")
     min_data_points = 5,  # minimum number of images in the dataset of each local subspace
     # Comment: if we want to learn the whole panorama (global model): overlap_percent=0, window_sz=img_emb_sz
@@ -73,29 +75,30 @@ regress_trans = dict(
 
 bg_tool = dict(
     gpu_num = 0,
-    data_type = 'benchmark',  # 'benchmark', 'video', 'syn'
-    video_path = 'movies/kitchen.mp4',
-    benchmark_path = 'benchmark/cp/',
-    syn_path = 'benchmark/garden_short/',
-    benchmark_img_type = '*.jpg',
-    syn_img_type = '.png',
-    # process_all_test_imgs = False,
-    only_refine = True,   # means that there is only SIFT refinement, where the image is placed in the center and warped towards the panorama. Put big gap_refine if true.
-    gap_refine = 100,  # in the refinement process, this is the number of pixels gap we look at in the panorama, around the enclosing square.
-    M_start = 0,   # start from this frame number
-    M = 22, # number if test images to process, if '' is False
-    use_gt_theta = False,
-    add_synthetic = False,
-    overlap_percent = 0.7, # 0, 0.7, #0.5,  # minimum % of overlapped pixels out of (window_sz*window_sz*3) needed to consider a subspace to be overlapped (used in "run_bg_model")
-    is_global_model = False,
-    is_zeromean = True,    # "Flase" when using PRPCA, "True" when using TGA.
-    idx_list = (521,522,523,524,525,603,604,605,606,622,623,624,625,630,631,632,633,694,695,696,697,698),  # save a list of indices to run on, or -1 in case we run on a range (0:M).
-                    # CP list: (740,741,742,743,744,822,823,824,825,841,842,843,844,849,850,851,852,913,914,915,916,917)
-                    # Garden_small: range(1070, 1500)
-                    # Garden_small syn, kitchen syn, jitter syn: (100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214)
-                    # Garden_long: (580,581,582,583,584,585,586,587,588,589,590,591,592,593,594,595,596,597,598,599,700,701,702,703,704,705,706,707,708,709,710,711,712,713,714)
-    data_path = 'Data_Global/cp/',
-    regress_model_path = 'Data_Global/cp/models/best_model.pt',
 
-    # Comment: if we want to project on the whole panorama (global model): is_global_model=True, overlap_percent=0 (and in pols: window_sz=img_emb_sz)
+    data_type = 'images',  # choose from: ['images', 'video']
+    video_name = 'jitter.mp4',  # relevant when data_type = 'video'
+    img_type = '*.png',  # relevant when data_type = 'images'
+
+    # Choose the number of test frames to process: 'all' (all test data), 'subsequence' (subsequence of the image list), or 'idx_list' (a list of specific frame indices).
+        # If choosing 'subsequence': insert relevant values in "start_frame" and "num_of_frames".
+        # If choosing 'idx_list': insert a list of indices in "idx_list".
+    which_test_frames =  'idx_list', # choose from: ['all', 'subsequence', 'idx_list']
+    start_frame = 0,
+    num_of_frames = 20,
+    idx_list=(2,15,39),
+
+    # use ground-truth transformations:
+        # When processing learning images: insert True
+        # When processing unseen images: insert False
+    use_gt_theta = True,
+
+    # refinement of the predicted alignment:
+    only_refine = False,   # means that there is only SIFT refinement, where the image is placed in the center and warped towards the panorama. If this is True, a big 'gap_refine' is needed.
+    gap_refine = 100,  # in the refinement process, this is the number of pixels gap we look at in the panorama, around the enclosing square.
+
+    overlap_percent = 0.7, # 0, 0.7, #0.5,  # minimum % of overlapped pixels out of (window_sz*window_sz*3) needed to consider a subspace to be overlapped (used in "run_bg_model")
+
+    # whether to project on the whole big domain, or use overlapping local domains:
+    is_global_model = False, # Comment: if we want to project on the whole panorama (global model): is_global_model=True, overlap_percent=0 (and in pols: window_sz=img_emb_sz)
 )

@@ -9,7 +9,7 @@ import config
 class DataProvider:
 
     def __init__(self):
-        input_path = '../input/'
+        input_path = '../input/learning/'
         self.feed_path = "SE/tmp_data"
         makedir(self.feed_path)
         self.img_sz = config.images['img_sz']  # set "-1" in case we want the original img_sz.
