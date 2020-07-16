@@ -12,6 +12,12 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 </p>
 
 ## Requirements
+- Python: most of the code runs in python using tensorflow, openCV, and other common python packages.
+- MATLAB (for the SE-Sync part)
+- C++: in case you are choosing the TGA mathod for learning the local subspaces (see module 2 below), please follow the requirements [here](https://github.com/MPI-IS/Grassmann-Averages-PCA). All steps should be performed in the TGA folder: *2_learning\BG\TGA-PCA*.
+
+
+**For a minimal working example, use the Tennis sequence (the input images are already located in the input folder in this repository)**.
 
 ## Installation
 
@@ -40,17 +46,18 @@ images = dict(
     img_sz = (250, 420, 3),
 )
 ```
+
 ### Module 1: Joint Alignment
 <ins>Code</ins>:<br />
 Main function: *1_joint_alignment/main_joint_alignment.py*
 
 <ins>Input</ins>:<br />
 A video or a sequence of images, that the BG model will be learned from.<br />
-The video or the images should be located in *input/video* or *input/images* respectively.
+The video or the images should be located in *input/learning/video* or *input/learning/images* respectively.
 
 <ins>Output</ins>:<br />
-Affine transformations for all input images, located in: *data/final_AFFINE_trans.npy*.<br />
-In this file, record *i* contains the affine transformation (6-parameters vector) that is associated with input image *i*.
+- *data/final_AFFINE_trans.npy*: affine transformations for all input images.<br />
+(In this file, record *i* contains the affine transformation (6-parameters vector) that is associated with input image *i*).
 
 <ins>Required params in config.py:</ins><br />
 Data type (video or a sequence of images), and relevant info about the input data:
@@ -106,12 +113,14 @@ High-level steps:
 Main function: *2_learning/main_learning.py*
 
 <ins>Input</ins>:<br /> 
-Files that were prepared in module 1, located in: 
-*data/final_AFFINE_trans.npy*, *data/imgs.npy*, *data/imgs_big_embd.npy*
+Files that were prepared in module 1:
+- *data/final_AFFINE_trans.npy*
+- *data/imgs.npy*
+- *data/imgs_big_embd.npy*
 
 <ins>Output</ins>:<br />
-- Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
-- Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
+- *data/subspaces/*: local subspaces for the background learning.<br /> 
+- *2_learning/Alignment/models/best_model.pt*: model of a trained net for the alignment prediction.
 
 <ins>Required params in config.py:</ins><br />
 **Local-subspaces learning:**<br />
@@ -148,10 +157,46 @@ Here we learn two tasks, based on the affine transformations that were learned i
 
 
 ### Module 3: Background/Foreground Separation
-<ins>Code location (main function)</ins>:
+<ins>Code</ins>:<br />
+Main function: *3_bg_separation/main_bg_separation.py*
 
-<ins>Input</ins>:
+<ins>Input</ins>:<br />
+A video or a sequence of test images for BG/FG separation.<br />
+The video or the images should be located in *input/test/video* or *input/test/images* respectively.
 
-<ins>Output</ins>:
+<ins>Output</ins>:<br />
+- *output/bg/*: background for each test image.<br /> 
+- *output/fg/*: foreground for each test image.<br />
+- *output/img/*: original test images.<br /> 
 
-<ins>Required params in config.py:</ins>
+<ins>Required params in config.py:</ins><br />
+Data type (video or a sequence of test images), and relevant info about the input data:
+```
+bg_tool = dict(
+    data_type = 'images',  # choose from: ['images', 'video']
+    video_name = 'jitter.mp4',  # relevant when data_type = 'video'
+    img_type = '*.png',  # relevant when data_type = 'images'
+)
+```
+
+Indicate which test images to process: 'all' (all test data), 'subsequence' (subsequence of the image list), or 'idx_list' (a list of specific frame indices (0-based))..<br /> 
+If choosing 'subsequence', insert relevant info in "start_frame" and "num_of_frames".<br /> 
+If choosing 'idx_list', insert a list of indices in "idx_list".
+```
+bg_tool = dict(
+    which_test_frames='idx_list',  # choose from: ['all', 'subsequence', 'idx_list']
+    start_frame=0,
+    num_of_frames=20,
+    idx_list=(2,15,39),
+)
+```
+
+Indicate whether or not to use the ground-truth transformations, in case your process images from the original video.<br />
+When processing learning images, insert True.<br /> 
+When processing unseen images, insert False.
+```
+bg_tool = dict(
+    use_gt_theta = True,
+)
+```
+The rest of the parameters can (optionally) remain with the current configuration.
