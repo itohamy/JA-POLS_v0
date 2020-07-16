@@ -40,6 +40,9 @@ images = dict(
     img_sz = (250, 420, 3),
 )
 ```
+
+For a minimal working example, use the Tennis sequence (the images are already located in the input folder in this repository).
+
 ### Module 1: Joint Alignment
 <ins>Code</ins>:<br />
 Main function: *1_joint_alignment/main_joint_alignment.py*
