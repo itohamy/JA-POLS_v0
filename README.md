@@ -163,3 +163,33 @@ The video or the images should be located in *input/test/video* or *input/test/i
 - *output/img/*: original test images.<br /> 
 
 <ins>Required params in config.py:</ins><br />
+Data type (video or a sequence of test images), and relevant info about the input data:
+```
+bg_tool = dict(
+    data_type = 'images',  # choose from: ['images', 'video']
+    video_name = 'jitter.mp4',  # relevant when data_type = 'video'
+    img_type = '*.png',  # relevant when data_type = 'images'
+)
+```
+
+Indicate which test images to process: 'all' (all test data), 'subsequence' (subsequence of the image list), or 'idx_list' (a list of specific frame indices (0-based))..<br /> 
+If choosing 'subsequence', insert relevant info in "start_frame" and "num_of_frames".<br /> 
+If choosing 'idx_list', insert a list of indices in "idx_list".
+```
+bg_tool = dict(
+    which_test_frames='idx_list',  # choose from: ['all', 'subsequence', 'idx_list']
+    start_frame=0,
+    num_of_frames=20,
+    idx_list=(2,15,39),
+)
+```
+
+Indicate whether or not to use the ground-truth transformations, in case your process images from the original video.<br />
+When processing learning images, insert True.<br /> 
+When processing unseen images, insert False.
+```
+bg_tool = dict(
+    use_gt_theta = True,
+)
+```
+The rest of the parameters can (optionally) remain with the current configuration.
