@@ -49,8 +49,8 @@ A video or a sequence of images, that the BG model will be learned from.<br />
 The video or the images should be located in *input/video* or *input/images* respectively.
 
 <ins>Output</ins>:<br />
-Affine transformations for all input images, located in: *data/final_AFFINE_trans.npy*.<br />
-In this file, record *i* contains the affine transformation (6-parameters vector) that is associated with input image *i*.
+- *data/final_AFFINE_trans.npy*: affine transformations for all input images.<br />
+(In this file, record *i* contains the affine transformation (6-parameters vector) that is associated with input image *i*).
 
 <ins>Required params in config.py:</ins><br />
 Data type (video or a sequence of images), and relevant info about the input data:
@@ -106,12 +106,14 @@ High-level steps:
 Main function: *2_learning/main_learning.py*
 
 <ins>Input</ins>:<br /> 
-Files that were prepared in module 1, located in: 
-*data/final_AFFINE_trans.npy*, *data/imgs.npy*, *data/imgs_big_embd.npy*
+Files that were prepared in module 1:
+- *data/final_AFFINE_trans.npy*
+- *data/imgs.npy*
+- *data/imgs_big_embd.npy*
 
 <ins>Output</ins>:<br />
-- Local subspaces for the background learning, located in: *data/subspaces/*<br /> 
-- Model of a trained net for the alignment prediction, located in: *2_learning/Alignment/models/best_model.pt*
+- *data/subspaces/*: local subspaces for the background learning.<br /> 
+- *2_learning/Alignment/models/best_model.pt*: model of a trained net for the alignment prediction.
 
 <ins>Required params in config.py:</ins><br />
 **Local-subspaces learning:**<br />
