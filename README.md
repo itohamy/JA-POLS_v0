@@ -46,7 +46,7 @@ Main function: *1_joint_alignment/main_joint_alignment.py*
 
 <ins>Input</ins>:<br />
 A video or a sequence of images, that the BG model will be learned from.<br />
-The video or the images should be located in *input/video* or *input/images* respectively.
+The video or the images should be located in *input/learning/video* or *input/learning/images* respectively.
 
 <ins>Output</ins>:<br />
 - *data/final_AFFINE_trans.npy*: affine transformations for all input images.<br />
@@ -150,10 +150,16 @@ Here we learn two tasks, based on the affine transformations that were learned i
 
 
 ### Module 3: Background/Foreground Separation
-<ins>Code location (main function)</ins>:
+<ins>Code</ins>:<br />
+Main function: *3_bg_separation/main_bg_separation.py*
 
-<ins>Input</ins>:
+<ins>Input</ins>:<br />
+A video or a sequence of test images for BG/FG separation.<br />
+The video or the images should be located in *input/test/video* or *input/test/images* respectively.
 
-<ins>Output</ins>:
+<ins>Output</ins>:<br />
+- *output/bg/*: background for each test image.<br /> 
+- *output/fg/*: foreground for each test image.<br />
+- *output/img/*: original test images.<br /> 
 
-<ins>Required params in config.py:</ins>
+<ins>Required params in config.py:</ins><br />
