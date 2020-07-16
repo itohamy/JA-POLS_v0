@@ -12,6 +12,12 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 </p>
 
 ## Requirements
+- Python: most of the code runs in python using tensorflow, openCV, and other common python packages.
+- MATLAB (for the SE-Sync part)
+- C++: in case you are choosing the TGA mathod for learning the local subspaces (see module 2 below), please follow the requirements [here](https://github.com/MPI-IS/Grassmann-Averages-PCA) in the TGA folder: *2_learning\BG\TGA-PCA*.
+
+
+**For a minimal working example, use the Tennis sequence (the images are already located in the input folder in this repository).**
 
 ## Installation
 
@@ -40,8 +46,6 @@ images = dict(
     img_sz = (250, 420, 3),
 )
 ```
-
-For a minimal working example, use the Tennis sequence (the images are already located in the input folder in this repository).
 
 ### Module 1: Joint Alignment
 <ins>Code</ins>:<br />
