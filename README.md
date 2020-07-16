@@ -17,7 +17,7 @@ JA-POLS is a novel 2D-based method for unsupervised learning of a moving-camera 
 - C++: in case you are choosing the TGA mathod for learning the local subspaces (see module 2 below), please follow the requirements [here](https://github.com/MPI-IS/Grassmann-Averages-PCA). All steps should be performed in the TGA folder: *2_learning\BG\TGA-PCA*.
 
 
-<span style="color:blue">**For a minimal working example, use the Tennis sequence (the input images are already located in the input folder in this repository).**</span>.
+<span style="color:blue">For a minimal working example, use the Tennis sequence (the input images are already located in the input folder in this repository).</span>.
 
 ## Installation
 
