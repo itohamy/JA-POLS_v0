@@ -74,18 +74,16 @@ regress_trans = dict(
 
 
 bg_tool = dict(
-    gpu_num = 0,
-
     data_type = 'images',  # choose from: ['images', 'video']
     video_name = 'jitter.mp4',  # relevant when data_type = 'video'
     img_type = '*.png',  # relevant when data_type = 'images'
 
     # Choose the number of test frames to process: 'all' (all test data), 'subsequence' (subsequence of the image list), or 'idx_list' (a list of specific frame indices).
-        # If choosing 'subsequence': insert relevant values in "start_frame" and "num_of_frames".
-        # If choosing 'idx_list': insert a list of indices in "idx_list".
-    which_test_frames =  'idx_list', # choose from: ['all', 'subsequence', 'idx_list']
-    start_frame = 0,
-    num_of_frames = 20,
+    # If choosing 'subsequence': insert relevant values in "start_frame" and "num_of_frames".
+    # If choosing 'idx_list': insert a list of indices in "idx_list".
+    which_test_frames='idx_list',  # choose from: ['all', 'subsequence', 'idx_list']
+    start_frame=0,
+    num_of_frames=20,
     idx_list=(2,15,39),
 
     # use ground-truth transformations:
@@ -93,11 +91,13 @@ bg_tool = dict(
         # When processing unseen images: insert False
     use_gt_theta = True,
 
+    gpu_num=0,  # gpu to use when running the regression net.
+
     # refinement of the predicted alignment:
     only_refine = False,   # means that there is only SIFT refinement, where the image is placed in the center and warped towards the panorama. If this is True, a big 'gap_refine' is needed.
     gap_refine = 100,  # in the refinement process, this is the number of pixels gap we look at in the panorama, around the enclosing square.
 
-    overlap_percent = 0.7, # 0, 0.7, #0.5,  # minimum % of overlapped pixels out of (window_sz*window_sz*3) needed to consider a subspace to be overlapped (used in "run_bg_model")
+    overlap_percent = 0.7, # minimum % of overlapped pixels out of (window_sz*window_sz*3) needed to consider a subspace to be overlapped (used in "run_bg_model")
 
     # whether to project on the whole big domain, or use overlapping local domains:
     is_global_model = False, # Comment: if we want to project on the whole panorama (global model): is_global_model=True, overlap_percent=0 (and in pols: window_sz=img_emb_sz)

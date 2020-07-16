@@ -7,7 +7,6 @@ from scipy.linalg import orth
 import os
 import shutil
 import glob
-#from BG.numpyctypes import c_ndarray
 import scipy.misc
 from skimage import img_as_ubyte
 import scipy
